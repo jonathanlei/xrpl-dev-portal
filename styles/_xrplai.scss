@@ -39,6 +39,8 @@ html.light .MarkpromptContentDialog h3:not(.chip) {
   --markprompt-overlay: #00000040;
   --markprompt-tab-border-bottom: #454549;
   --markprompt-hover-color: #5f00e5;
+  --markprompt-ternary-hover: #4a00b2;
+  --markprompt-ternary-text: #f0e5ff;
 }
 
 .MarkpromptPromptFeedback button[data-active="true"] {
@@ -341,6 +343,9 @@ label.MarkpromptExtendedFeedbackLabel {
     content: "";
     display: none;
   }
+  .MarkpromptFloatingTrigger {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
@@ -361,7 +366,7 @@ label.MarkpromptExtendedFeedbackLabel {
     background-image: url(../img/icons/close.png);
     background-size: cover;
     background-repeat: no-repeat;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .MarkpromptContentDialog {
@@ -484,6 +489,7 @@ button.MarkpromptTab[id="radix-P0-0-trigger-prompt"]::after {
 html.light:root {
   --markprompt-primary: #7919ff;
   --markprompt-secondary-button: #9a52ff;
+  --markprompt-primary-button: #b480ff;
   --markprompt-feedback-box-background: #232325;
   --markprompt-button-text: #111112;
   --markprompt-feedback-label-text: #111112;
@@ -506,6 +512,8 @@ html.light:root {
   --markprompt-overlay: #00000040;
   --markprompt-tab-border-bottom: #454549;
   --markprompt-hover-color: #5f00e5;
+  --markprompt-ternary-hover: #f0e5ff;
+  --markprompt-ternary-text: #7919ff;
 }
 
 html.light .MarkpromptAnswer {
@@ -563,8 +571,9 @@ html.light
   stroke: #ff198b;
 }
 
-html.light .MarkpromptCancelAdditionalFeedbackButton:hover {
-  background-color: var(--markprompt-feedback-textbox-background);
+.MarkpromptCancelAdditionalFeedbackButton:hover {
+  background-color: var(--markprompt-ternary-hover) !important;
+  color: var(--markprompt-ternary-text) !important;
 }
 
 html.light .MarkpromptCancelAdditionalFeedbackButton {
@@ -610,4 +619,36 @@ html.light [aria-selected="true"] .MarkpromptSearchResultIcon {
 
 html.light .MarkpromptPrompt:focus {
   color: var(--markprompt-button-text);
+}
+
+// #searchButton[aria-disabled="true"] svg rect {
+//   fill: var(--markprompt-secondary-button);
+//   opacity: 50%;
+// }
+
+// #searchButton[aria-disabled="true"] svg path {
+//   stroke: var(--markprompt-primaryForeground);
+//   opacity: 50%;
+// }
+
+#searchButton[aria-disabled="true"] {
+  background-image: url(../img/icons/submitdisabled.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+#searchButton[aria-disabled="true"] svg {
+  visibility: hidden;
+}
+
+html.light #searchButton[aria-disabled="true"] {
+  background-image: url(../img/icons/submitdisabledlight.png);
+}
+
+.MarkpromptFloatingTrigger {
+  background-image: url(../img/icons/askXRPL.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: transparent;
 }
